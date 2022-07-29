@@ -22,6 +22,7 @@ public class Hribi_Izbira extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hribi_izbira);
         binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
