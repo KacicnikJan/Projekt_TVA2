@@ -19,15 +19,15 @@
             android:layout_marginStart="20dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/posamezno"
+                android:id="@+id/imeVrha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:textStyle="bold"
-                android:text="Ime Gorovja"
+                android:text="Ime Vrha"
                 android:textSize="20dp"/>
             <TextView
-                android:id="@+id/stVrhov"
+                android:id="@+id/ndmv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10 vrhov"/>
@@ -35,12 +35,6 @@
         </LinearLayout>
 
     </LinearLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listviewvrh"
-        tools:listitem="@layout/list_item_vrh"
-        android:layout_marginTop="100dp"
-        />
+
 
 </RelativeLayout>
