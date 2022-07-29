@@ -14,8 +14,18 @@
         android:theme="@style/Theme.TVA_projekt"
         tools:targetApi="31">
         <activity
-            android:name=".Hribi_Izbira"
+            android:name=".Izbira_Poti"
             android:exported="false" />
+        <activity
+            android:name=".Hribi_Izbira"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".PosamezniVrh"
             android:exported="false" />
@@ -24,12 +34,8 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"
