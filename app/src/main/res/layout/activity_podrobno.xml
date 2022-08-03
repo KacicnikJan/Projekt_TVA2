@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Izbira_Poti">
+    tools:context=".Podrobno">
 
 
     <LinearLayout
@@ -19,28 +19,21 @@
             android:layout_marginStart="20dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/vrhIme"
+                android:id="@+id/potIme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:textStyle="bold"
-                android:text="Ime Gore"
+                android:text="Ime Poti"
                 android:textSize="20dp"/>
             <TextView
-                android:id="@+id/nadmorska"
+                android:id="@+id/stVrhov"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 vrhov"/>
+                android:text="tekst"/>
 
         </LinearLayout>
 
     </LinearLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listviewpot"
-        tools:listitem="@layout/list_item_vrh"
-        android:layout_marginTop="100dp"
-        />
 
 </RelativeLayout>
