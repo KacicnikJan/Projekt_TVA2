@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME="Login.db";
+    public SQLiteDatabase db;
 
     public DBHelper(Context context) {
         super(context, "Login.db", null, 1);
@@ -20,13 +21,16 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table users(id integer primary key autoincrement,username TEXT, password TEXT)");
+        MyDB.execSQL("create Table admin(id INT primary key,username TEXT, password TEXT)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
 
         MyDB.execSQL("drop Table if exists users");
+        MyDB.execSQL("drop Table if exists admin");
     }
 
     public Boolean insertData(String username, String password){
@@ -59,5 +63,22 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public Boolean checkifadmin(String username, String password) {
+
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+        Cursor cursor=MyDB.rawQuery("Select*from users where username=admin and password=admin", new String[] {username, password});
+        if (cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+    public String getUserName(String username) {
+
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+        Cursor cursor=MyDB.rawQuery("Select*from users where username=?",new String[] {username});
+        return username;
     }
 }

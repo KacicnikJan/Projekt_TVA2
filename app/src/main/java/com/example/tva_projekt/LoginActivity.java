@@ -53,6 +53,13 @@ public class LoginActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(LoginActivity.this,"Invalid credentials",Toast.LENGTH_SHORT).show();
                     }
+                    if (user.equals("admin")&&pass.equals("admin")){
+                        Toast.makeText(LoginActivity.this,"Admin succesfull",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),AdminActivity.class);
+                        startActivity(intent);
+                    }else{
+                         checkuserpass=DB.checkusernamepassword(user,pass);
+                    }
                 }
             }
         });

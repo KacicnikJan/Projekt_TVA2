@@ -14,6 +14,7 @@ public class HomeActivity extends AppCompatActivity {
 
     EditText username, password;
     Button izbiriHriba;
+    Button izbiraMape;
     DBHelper DB;
 
     @Override
@@ -24,13 +25,14 @@ public class HomeActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });
 
         username = (EditText) findViewById(R.id.inputUsername1);
         password = (EditText) findViewById(R.id.inputPassword1);
         izbiriHriba = (Button) findViewById(R.id.btnRazlizcnePoti);
+        izbiraMape = (Button) findViewById(R.id.btnZemljevid);
         DB = new DBHelper(this);
 
         izbiriHriba.setOnClickListener(new View.OnClickListener() {
@@ -41,5 +43,18 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        izbiraMape.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
     }
 }
