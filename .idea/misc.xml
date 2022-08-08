@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/TVA_projekt/app/src/main/res/drawable/ic_baseline_security_24.xml" value="0.196" />
         <entry key="..\:/TVA_projekt/app/src/main/res/drawable/ic_email.xml" value="0.196" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_admin.xml" value="0.25" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_hribi_izbira.xml" value="0.14463019250253292" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_maps.xml" value="0.1852355072463768" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_maps2.xml" value="0.36666666666666664" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_register.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_hribi_izbira.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_izbira_poti.xml" value="0.18802083333333333" />
