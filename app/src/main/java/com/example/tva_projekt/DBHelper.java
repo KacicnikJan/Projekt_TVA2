@@ -15,14 +15,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase db;
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 1);
+        super(context, "Login.db", null, 3);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
         MyDB.execSQL("create Table users(id integer primary key autoincrement,username TEXT, password TEXT)");
-        MyDB.execSQL("create Table admin(id INT primary key,username TEXT, password TEXT)");
+        MyDB.execSQL("create Table hribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
     }
 
 
@@ -31,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         MyDB.execSQL("drop Table if exists users");
         MyDB.execSQL("drop Table if exists admin");
+        MyDB.execSQL("drop Table if exists hribovje");
     }
 
     public Boolean insertData(String username, String password){
@@ -80,5 +81,17 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB=this.getWritableDatabase();
         Cursor cursor=MyDB.rawQuery("Select*from users where username=?",new String[] {username});
         return username;
+    }
+    public Boolean dodajHribovje(Integer IdHribovja, String ime){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put("id", IdHribovja);
+        values.put("imeHribovja", ime);
+        long result=MyDB.insert("hribovje", null, values);
+        if (result==-1) return false;
+        else
+            return true;
+
     }
 }

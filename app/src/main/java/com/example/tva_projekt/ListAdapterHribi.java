@@ -31,7 +31,7 @@ public class ListAdapterHribi extends ArrayAdapter<Hribovje> {
         TextView gorovjeSteviloGor = convertView.findViewById(R.id.gorovjeSteviloGor);
 
         gorovje.setText(hribovje.ime);
-        gorovjeSteviloGor.setText(Integer.toString(hribovje.stVrhov));
+
 
 
         return convertView;

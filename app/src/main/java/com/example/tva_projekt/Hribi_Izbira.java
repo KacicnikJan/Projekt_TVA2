@@ -32,7 +32,7 @@ public class Hribi_Izbira extends AppCompatActivity {
         ArrayList<Hribovje> hribovjeArrayList = new ArrayList<>();
 
         for(int i=0;i<ime.length;i++){
-            Hribovje hribovje = new Hribovje(ime[i], stVrhov[i]);
+            Hribovje hribovje = new Hribovje(i, ime[i]);
             hribovjeArrayList.add(hribovje);
         }
 
