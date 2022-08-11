@@ -10,4 +10,22 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_btn">Login</string>
+    <string name="label_acc">Dont have an Account?</string>
+    <string name="signup">SignUp</string>
+    <string name="label_header">Login</string>
+    <string name="register_header">Register</string>
+    <string name="register">Register</string>
+    <string name="menu">MENU</string>
+    <string name="btnIzbiraPoti">Choose path</string>
+    <string name="btnVremenski_podatki">WEATHER</string>
+    <string name="btn_zapiski_poti">ROUTE NOTES</string>
+    <string name="btn_osvojeni_vrhovi">CONQUERED PEAKS</string>
+    <string name="btn_razmere_na_vrhovih">RELATIONSHIPS AT THE TOP</string>
+    <string name="btn_spletne_kamere">WEB CAMERAS</string>
+    <string name="btn_zemljevid">MAPS</string>
+    <string name="btn_logout">LOGOUT</string>
 </resources>

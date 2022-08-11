@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">TVA_projekt</string>
+    <string name="action_settings">Settings</string>
+    <!-- String resource for Slovenian language -->
+    <string name="username">Uporabniško ime</string>
+    <string name="password">Geslo</string>
+    <string name="forgot_password">Pozabljeno geslo</string>
+    <string name="login_btn">Vpis</string>
+    <string name="label_acc">Nimaš računa?</string>
+    <string name="signup">Registracija</string>
+    <string name="label_header">VPIS</string>
+    <string name="register">Usvari račun</string>
+    <string name="menu">MENI</string>
+    <string name="btnIzbiraPoti">Izbira poti</string>
+    <string name="btnVremenski_podatki">VREMENSKI PODATKI</string>
+    <string name="btn_zapiski_poti">ZAPISKI POTI</string>
+    <string name="btn_osvojeni_vrhovi">OSVOJENI VRHOVI</string>
+    <string name="btn_razmere_na_vrhovih">RAZMERE NA VRHOVIH</string>
+    <string name="btn_spletne_kamere">SPLETNE KAMERE</string>
+    <string name="btn_zemljevid">ZEMLJEVID</string>
+    <string name="btn_logout">IZPIS</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="register_header">Registracijs</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+
+</resources>
