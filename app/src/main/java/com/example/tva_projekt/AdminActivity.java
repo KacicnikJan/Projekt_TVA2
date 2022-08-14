@@ -71,12 +71,13 @@ public class AdminActivity extends AppCompatActivity {
         btnDodaj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String imeGore=iGorovje.getText().toString();
-                if(imeGore.equals("")){
+                String imeGorovja=iGorovje.getText().toString();
+                if(imeGorovja.equals("")){
                     Toast.makeText(AdminActivity.this, "Please enter all fields",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Boolean insert=DB.dodajHribovje(null,imeGore);
+                    Hribovje hribovje = new Hribovje(0,imeGorovja);
+                    Boolean insert=DB.dodajHribovje(hribovje.idHribovja,hribovje.ime);
                     if (insert==true) {
                         Toast.makeText(AdminActivity.this, "Entered successfully", Toast.LENGTH_SHORT).show();
                         //Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
@@ -85,7 +86,7 @@ public class AdminActivity extends AppCompatActivity {
                         Toast.makeText(AdminActivity.this,"Input failed", Toast.LENGTH_SHORT).show();
                     }
                 }
-                //startActivity(new Intent(AdminActivity.this, LoginActivity.class));
+                startActivity(new Intent(AdminActivity.this, AdminActivity.class));
             }
         });
     }

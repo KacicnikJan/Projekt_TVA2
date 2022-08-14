@@ -9,20 +9,22 @@ import android.text.BoringLayout;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME="Login.db";
     public SQLiteDatabase db;
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 3);
+        super(context, "Login.db", null, 4);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
         MyDB.execSQL("create Table users(id integer primary key autoincrement,username TEXT, password TEXT)");
-        MyDB.execSQL("create Table hribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
+        MyDB.execSQL("create Table dhribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
     }
 
 
@@ -31,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         MyDB.execSQL("drop Table if exists users");
         MyDB.execSQL("drop Table if exists admin");
-        MyDB.execSQL("drop Table if exists hribovje");
+        MyDB.execSQL("drop Table if exists dhribovje");
     }
 
     public Boolean insertData(String username, String password){
@@ -88,10 +90,26 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         //values.put("id", IdHribovja);
         values.put("imeHribovja", ime);
-        long result=MyDB.insert("hribovje", null, values);
+        long result=MyDB.insert("dhribovje", null, values);
         if (result==-1) return false;
         else
             return true;
 
+    }
+    public ArrayList<Hribovje> izpisiHribovja(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursorHribovja = db.rawQuery("SELECT * FROM dhribovje",null);
+        ArrayList<Hribovje> hribovjeArrayList = new ArrayList<>();
+
+        if(cursorHribovja.moveToFirst()){
+            do {
+                Hribovje hribovje = new Hribovje();
+                hribovje.setIdHribovja(Integer.parseInt(cursorHribovja.getString(0)));
+                hribovje.setIme(cursorHribovja.getString(1));
+                hribovjeArrayList.add(hribovje);
+                } while (cursorHribovja.moveToNext());
+            }
+        cursorHribovja.close();
+        return hribovjeArrayList;
     }
 }
