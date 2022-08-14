@@ -32,7 +32,7 @@ android {
     sourceSets {
         main {
             res {
-                srcDirs 'src\\main\\res', 'src\\main\\res\\values-SI'
+                srcDirs 'src\\main\\res', 'src\\main\\res\\values-SI', 'src\\main\\res\\layout-land'
             }
         }
     }
