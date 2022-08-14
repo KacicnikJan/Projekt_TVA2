@@ -19,6 +19,9 @@ import java.util.List;
 public class Hribi_Izbira extends AppCompatActivity {
 
     ActivityHribiIzbiraBinding binding;
+    DBHelper DB;
+    ArrayList<Hribovje> noviArrayList=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +29,19 @@ public class Hribi_Izbira extends AppCompatActivity {
         binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String[] ime={"Goriško, Notranjsko in Snežniško hribovje", "Julijske Alpe", "Kamniško Savinjske Alpe", "Karavanke", "Pohorje, Dravinjske gorice in Haloze", "Polhograjsko hribovje in Ljubljana"};
-        int[] stVrhov={5, 2, 3, 6, 4, 5};
+        
+        //int[] stVrhov={5, 2, 3, 6, 4, 5};
 
-        ArrayList<Hribovje> hribovjeArrayList = new ArrayList<>();
 
-        for(int i=0;i<ime.length;i++){
-            Hribovje hribovje = new Hribovje(ime[i], stVrhov[i]);
+        noviArrayList=DB.izpisiHribovja();
+
+        /*for(int i=0;i<ime.length;i++){
+            Hribovje hribovje = new Hribovje(i, ime[i]);
             hribovjeArrayList.add(hribovje);
-        }
+        }*/
 
-        ListAdapterHribi listAdapterHribi = new ListAdapterHribi(Hribi_Izbira.this, hribovjeArrayList);
+
+        ListAdapterHribi listAdapterHribi = new ListAdapterHribi(Hribi_Izbira.this, noviArrayList);
 
         binding.listview.setAdapter(listAdapterHribi);
         binding.listview.setClickable(true);
@@ -44,8 +49,10 @@ public class Hribi_Izbira extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(Hribi_Izbira.this, PosamezniVrh.class);
-                i.putExtra("ime", ime[position]);
-                i.putExtra("stVrhov",stVrhov[position]);
+
+                Hribovje izbrano = listAdapterHribi.getItem(position);
+                i.putExtra("ime", izbrano.ime);
+                i.putExtra("id", izbrano.idHribovja);
 
                 startActivity(i);
             }
