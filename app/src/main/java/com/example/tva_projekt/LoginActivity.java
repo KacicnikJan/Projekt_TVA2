@@ -11,18 +11,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+
+public class LoginActivity extends AppCompat {
 
     EditText username, password;
     Button login;
     DBHelper DB;
-
+    Button btnEN;
+    Button btnSI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         TextView btn=findViewById(R.id.textViewSignup);
+        LanguageManager lang=new LanguageManager(this);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +38,18 @@ public class LoginActivity extends AppCompatActivity {
         password=(EditText)  findViewById(R.id.inputPassword1);
         login=(Button) findViewById(R.id.Login);
         DB=new DBHelper(this);
+        btnEN=findViewById(R.id.btn_en);
+        btnSI=findViewById(R.id.btn_slo);
+
+        btnEN.setOnClickListener(view ->{
+            lang.updateResources("en");
+            recreate();
+        });
+
+        btnSI.setOnClickListener(view ->{
+            lang.updateResources("sl");
+            recreate();
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

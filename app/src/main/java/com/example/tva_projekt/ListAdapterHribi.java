@@ -32,10 +32,7 @@ public class ListAdapterHribi extends ArrayAdapter<Hribovje> {
 
         gorovje.setText(hribovje.ime);
 
-
-
         return convertView;
-
 
     }
 }

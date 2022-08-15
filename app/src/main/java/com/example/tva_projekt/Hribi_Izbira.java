@@ -32,6 +32,7 @@ public class Hribi_Izbira extends AppCompatActivity {
         
         //int[] stVrhov={5, 2, 3, 6, 4, 5};
 
+        DB=new DBHelper(this);
 
         noviArrayList=DB.izpisiHribovja();
 

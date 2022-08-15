@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity {
+
+public class HomeActivity extends AppCompat {
 
     EditText username, password;
     Button izbiriHriba;
     Button izbiraMape;
     DBHelper DB;
+    Button vremeneskiPodatki;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.inputPassword1);
         izbiriHriba = (Button) findViewById(R.id.btnRazlizcnePoti);
         izbiraMape = (Button) findViewById(R.id.btnZemljevid);
+        vremeneskiPodatki=(Button) findViewById(R.id.btnVremenskiPodatki);
         DB = new DBHelper(this);
 
         izbiriHriba.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +52,15 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        vremeneskiPodatki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),WeatherActivity.class);
                 startActivity(i);
             }
         });
