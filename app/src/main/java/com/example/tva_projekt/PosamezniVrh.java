@@ -16,15 +16,18 @@ import java.util.Random;
 public class PosamezniVrh extends AppCompatActivity {
 
     ActivityPosamezniVrhBinding binding;
+    DBHelper DB;
+    int idHribovja;
+    ArrayList<Vrh> vrhArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_posamezni_vrh);
         binding = ActivityPosamezniVrhBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String[] imeVrha = {"Triglav", "Mali Golak", "Snežnik", "Montaž", "Grintovec"};
-        String[] ndmv = {"2864m", "1920m", "989m","2687m","2560m"};
+        DB=new DBHelper(this);
 
 
         Intent intent = this.getIntent();
@@ -32,19 +35,15 @@ public class PosamezniVrh extends AppCompatActivity {
         if(intent!= null){
             String ime = intent.getStringExtra("ime");
             int StVrhov = intent.getIntExtra("stVrhov", 0);
+            idHribovja=intent.getIntExtra("id",0);
 
             binding.posamezno.setText(ime);
             binding.stVrhov.setText(Integer.toString(StVrhov));
         }
 
-        ArrayList<Vrh> vrhArrayList = new ArrayList<>();
 
-        for(int i=0;i<imeVrha.length;i++){
-            Random rnd = new Random();
-            int x = rnd.nextInt(100);
-            Vrh vrh = new Vrh(Integer.toString(x),imeVrha[i], "lorem ipsum neki neki", "koordinate pridejo sem", ndmv[i]);
-            vrhArrayList.add(vrh);
-        }
+        vrhArrayList = DB.izpisiVrhove(idHribovja);
+
 
         ListAdapterVrh listAdapterVrh = new ListAdapterVrh(PosamezniVrh.this, vrhArrayList);
 
@@ -54,8 +53,10 @@ public class PosamezniVrh extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(PosamezniVrh.this, Izbira_Poti.class);
-                i.putExtra("imeVrha", imeVrha[position]);
-                i.putExtra("ndmv",ndmv[position]);
+
+                Vrh izbran = listAdapterVrh.getItem(position);
+                i.putExtra("imeVrha", izbran.imeVrha);
+                i.putExtra("ndmv",izbran.ndmv);
 
                 startActivity(i);
             }
