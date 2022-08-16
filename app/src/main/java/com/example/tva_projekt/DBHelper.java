@@ -3,9 +3,11 @@ package com.example.tva_projekt;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.BoringLayout;
+import android.util.SparseIntArray;
 
 import androidx.annotation.Nullable;
 
@@ -17,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase db;
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 4);
+        super(context, "Login.db", null, 5);
     }
 
     @Override
@@ -25,6 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         MyDB.execSQL("create Table users(id integer primary key autoincrement,username TEXT, password TEXT)");
         MyDB.execSQL("create Table dhribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
+        MyDB.execSQL("create Table dvrh(idVrha INTEGER primary key autoincrement,imeVrha TEXT NOT NULL, ndmv INTEGER NOT NULL, longitude TEXT NOT NULL, latitude TEXT NOT NULL, opis TEXT NOT NULL, idHribovja INTEGER NOT NULL, FOREIGN KEY(idHribovja) REFERENCES dhribovje(id))");
     }
 
 
@@ -34,6 +37,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists users");
         MyDB.execSQL("drop Table if exists admin");
         MyDB.execSQL("drop Table if exists dhribovje");
+        MyDB.execSQL("drop table if exists dvrh");
     }
 
     public Boolean insertData(String username, String password){
@@ -96,6 +100,33 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
 
     }
+//    public Vrh(String imeVrha, String opis, String lokacijaVrhLong, String lokacijaVrhLat, Integer idVrha, Integer idHribovja, Integer ndmv
+    public Boolean dodajVrh(String imeVrha, String opis, String lokacijaVrhLong, String lokacijaVrhLat, Integer idVrha, Integer idHribovja, Integer ndmv){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put("id", IdHribovja);
+        values.put("imeVrha", imeVrha);
+        values.put("opis", opis);
+        values.put("latitude",lokacijaVrhLat);
+        values.put("longitude", lokacijaVrhLong);
+        values.put("idHribovja", idHribovja);
+        values.put("ndmv", ndmv);
+        long result=MyDB.insert("dvrh", null, values);
+        if (result==-1) return false;
+        else
+            return true;
+
+    }
+    public Integer pridobiStVrhov(Integer idHribovja){
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Integer result = (int) DatabaseUtils.queryNumEntries(db,"dvrh","idHribovja=?",new String[]{idHribovja.toString()});
+        if(result != 0) {
+            return result;
+        }
+        else return 0;
+    }
     public ArrayList<Hribovje> izpisiHribovja(){
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor cursorHribovja = db.rawQuery("SELECT * FROM dhribovje",null);
@@ -112,31 +143,26 @@ public class DBHelper extends SQLiteOpenHelper {
         cursorHribovja.close();
         return hribovjeArrayList;
     }
-
-    public ArrayList<Hribovje> readCourses() {
-        // on below line we are creating a
-        // database for reading our database.
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor cursorCourses = db.rawQuery("SELECT * FROM  dhribovje", null);
-
-        // on below line we are creating a new array list.
-        ArrayList<Hribovje> courseModalArrayList = new ArrayList<>();
-
-        // moving our cursor to first position.
-        if (cursorCourses.moveToFirst()) {
+    public ArrayList<Vrh> izpisiVrhove(Integer idHribovja){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursorVrhovi = db.rawQuery("SELECT * FROM dvrh WHERE idHribovja=? ORDER BY ndmv DESC",new String[]{idHribovja.toString()});
+        ArrayList<Vrh> vrhArrayList = new ArrayList<>();
+        if(cursorVrhovi.moveToFirst()){
             do {
-                // on below line we are adding the data from cursor to our array list.
-                courseModalArrayList.add(new Hribovje(
-                        cursorCourses.getInt(1),
-                        cursorCourses.getString(2)));
-            } while (cursorCourses.moveToNext());
-            // moving our cursor to next.
+                Vrh vrh = new Vrh();
+                vrh.setIdVrha(Integer.parseInt(cursorVrhovi.getString(0)));
+                vrh.setImeVrha(cursorVrhovi.getString(1));
+                vrh.setNdmv(Integer.parseInt(cursorVrhovi.getString(2)));
+                vrh.setLokacijaVrhLong(cursorVrhovi.getString(3));
+                vrh.setLokacijaVrhLat(cursorVrhovi.getString(4));
+                vrh.setOpis(cursorVrhovi.getString(5));
+                vrh.setIdHribovja(idHribovja);
+                vrhArrayList.add(vrh);
+            } while (cursorVrhovi.moveToNext());
         }
-        // at last closing our cursor
-        // and returning our array list.
-        cursorCourses.close();
-        return courseModalArrayList;
+        cursorVrhovi.close();
+        return vrhArrayList;
     }
+
+
 }

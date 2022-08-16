@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class ListAdapterVrh extends ArrayAdapter<Vrh> {
     public ListAdapterVrh(Context context, ArrayList<Vrh> vrhArrayList){
-        super(context, R.layout.list_item, vrhArrayList);
+        super(context, R.layout.list_item_vrh, vrhArrayList);
     }
 
 
@@ -30,10 +30,17 @@ public class ListAdapterVrh extends ArrayAdapter<Vrh> {
         }
         TextView vrhIme = convertView.findViewById(R.id.vrhIme);
         TextView visina = convertView.findViewById(R.id.visina);
+        if(vrh.ndmv > 2000){
+            convertView.findViewById(R.id.slika).setVisibility(View.VISIBLE);
+            convertView.findViewById(R.id.slika_hrib).setVisibility(View.GONE);
+        }else {
+            convertView.findViewById(R.id.slika).setVisibility(View.GONE);
+            convertView.findViewById(R.id.slika_hrib).setVisibility(View.VISIBLE);
+        }
 
 
         vrhIme.setText(vrh.imeVrha);
-        visina.setText(vrh.ndmv);
+        visina.setText(vrh.ndmv.toString());
 
 
 

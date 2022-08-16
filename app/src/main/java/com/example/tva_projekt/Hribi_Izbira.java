@@ -29,17 +29,11 @@ public class Hribi_Izbira extends AppCompatActivity {
         binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        
-        //int[] stVrhov={5, 2, 3, 6, 4, 5};
 
         DB=new DBHelper(this);
 
         noviArrayList=DB.izpisiHribovja();
 
-        /*for(int i=0;i<ime.length;i++){
-            Hribovje hribovje = new Hribovje(i, ime[i]);
-            hribovjeArrayList.add(hribovje);
-        }*/
 
 
         ListAdapterHribi listAdapterHribi = new ListAdapterHribi(Hribi_Izbira.this, noviArrayList);
@@ -52,6 +46,9 @@ public class Hribi_Izbira extends AppCompatActivity {
                 Intent i = new Intent(Hribi_Izbira.this, PosamezniVrh.class);
 
                 Hribovje izbrano = listAdapterHribi.getItem(position);
+
+                int stVrhov = DB.pridobiStVrhov(izbrano.idHribovja);
+                i.putExtra("stVrhov", stVrhov);
                 i.putExtra("ime", izbrano.ime);
                 i.putExtra("id", izbrano.idHribovja);
 
