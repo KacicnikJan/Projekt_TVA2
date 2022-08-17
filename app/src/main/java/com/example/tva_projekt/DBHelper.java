@@ -12,6 +12,7 @@ import android.util.SparseIntArray;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -162,6 +163,31 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursorVrhovi.close();
         return vrhArrayList;
+    }
+    public List<Vrh> search(String keyword){
+        List<Vrh> vrhs=null;
+        try{
+            SQLiteDatabase db=this.getReadableDatabase();
+            Cursor cursor = db.rawQuery("Select * FROM dvrh WHERE imeVrha LIKE ?", new String[]{"%" + keyword + "%"});
+            if (cursor.moveToFirst()){
+                vrhs=new ArrayList<>();
+                do {
+                    Vrh vrh = new Vrh();
+                    vrh.setIdVrha(Integer.parseInt(cursor.getString(0)));
+                    vrh.setImeVrha(cursor.getString(1));
+                    vrh.setNdmv(Integer.parseInt(cursor.getString(2)));
+                    vrh.setLokacijaVrhLong(cursor.getString(3));
+                    vrh.setLokacijaVrhLat(cursor.getString(4));
+                    vrh.setOpis(cursor.getString(5));
+                    vrh.setIdHribovja(Integer.parseInt(cursor.getString(6)));
+                    vrhs.add(vrh);
+                }
+                while (cursor.moveToNext());
+            }
+        } catch (Exception e){
+            vrhs=null;
+        }
+        return vrhs;
     }
 
 

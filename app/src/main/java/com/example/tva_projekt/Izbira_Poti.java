@@ -38,13 +38,15 @@ public class Izbira_Poti extends AppCompatActivity {
             binding.nadmorska.setText(ndmv);
         }
         ArrayList<Pot> potArrayList = new ArrayList<>();
-
+        /*
         for(int i=0;i<imePoti.length;i++){
             Random rnd = new Random();
             int x = rnd.nextInt(100);
             Pot pot = new Pot(imePoti[i], zahtevnost[i], casHoje[i], "random izhodisce", "gres tam pa tam pa prides tja in se obrneš ker si smotan in pol greš desno in si gor", "random link do galerije" );
             potArrayList.add(pot);
         }
+
+         */
 
         ListAdapterPot listAdapterPot = new ListAdapterPot(Izbira_Poti.this, potArrayList);
 

@@ -28,13 +28,13 @@ public class ListAdapterPot extends ArrayAdapter<Pot> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_pot,parent,false);
 
         }
-        TextView potIme = convertView.findViewById(R.id.potIme);
+        TextView imePoti = convertView.findViewById(R.id.potIme);
         TextView zahtevnost = convertView.findViewById(R.id.zahtevnost);
         TextView casHoje = convertView.findViewById(R.id.casHoje);
 
 
 
-        potIme.setText(pot.potIme);
+        imePoti.setText(pot.imePoti);
         zahtevnost.setText(pot.zahtevnost);
         casHoje.setText(pot.casHoje);
 
