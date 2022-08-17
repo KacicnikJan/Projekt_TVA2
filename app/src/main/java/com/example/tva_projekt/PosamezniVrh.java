@@ -56,6 +56,7 @@ public class PosamezniVrh extends AppCompatActivity {
 
                 Vrh izbran = listAdapterVrh.getItem(position);
                 i.putExtra("imeVrha", izbran.imeVrha);
+                i.putExtra("idVrha", izbran.idVrha);
                 i.putExtra("ndmv",izbran.ndmv);
 
                 startActivity(i);
