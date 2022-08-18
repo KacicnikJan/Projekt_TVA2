@@ -30,15 +30,11 @@ public class HomeActivity extends AppCompat {
     Button vremeneskiPodatki;
     Button osvojeniVrh;
     Button spletnekamere;
-    private Toolbar toolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //toolbar=findViewById(R.id.myToolBar);
-        //setSupportActionBar(toolbar);
 
         TextView btn = findViewById(R.id.btnLogout);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -114,14 +110,20 @@ public class HomeActivity extends AppCompat {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
         case R.id.first:
-            //add the function to perform here
-            return(true);
+            Intent i2 = new Intent(getApplicationContext(),Hribi_Izbira.class);
+            startActivity(i2);
+            return true;
         case R.id.second:
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(i);
+           finish();
+            return true;
         case R.id.third:
-            //add the function to perform here
-            return(true);
+            Intent i3 = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(i3);
+            return true;
+        case R.id.stiri:
+            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i);
+            return true;
     }
         return(super.onOptionsItemSelected(item));
     }
