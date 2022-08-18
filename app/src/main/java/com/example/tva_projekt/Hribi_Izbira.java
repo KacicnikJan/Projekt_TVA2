@@ -29,12 +29,8 @@ public class Hribi_Izbira extends AppCompatActivity {
         binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         DB=new DBHelper(this);
-
         noviArrayList=DB.izpisiHribovja();
-
-
 
         ListAdapterHribi listAdapterHribi = new ListAdapterHribi(Hribi_Izbira.this, noviArrayList);
 

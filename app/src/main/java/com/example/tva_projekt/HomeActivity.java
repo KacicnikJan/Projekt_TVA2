@@ -18,6 +18,8 @@ public class HomeActivity extends AppCompat {
     Button izbiraMape;
     DBHelper DB;
     Button vremeneskiPodatki;
+    Button osvojeniVrh;
+    Button spletnekamere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class HomeActivity extends AppCompat {
         izbiriHriba = (Button) findViewById(R.id.btnRazlizcnePoti);
         izbiraMape = (Button) findViewById(R.id.btnZemljevid);
         vremeneskiPodatki=(Button) findViewById(R.id.btnVremenskiPodatki);
+        osvojeniVrh=(Button) findViewById(R.id.btnOsvojeniVrhovi);
+        spletnekamere=(Button) findViewById(R.id.btnSpletneKamere);
+
         DB = new DBHelper(this);
 
         izbiriHriba.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +66,24 @@ public class HomeActivity extends AppCompat {
             public void onClick(View v) {
 
                 Intent i = new Intent(getApplicationContext(),WeatherActivity.class);
+                startActivity(i);
+            }
+        });
+
+        osvojeniVrh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),Osvojeni_vrh.class);
+                startActivity(i);
+            }
+        });
+
+        spletnekamere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),SpletneKamere.class);
                 startActivity(i);
             }
         });
