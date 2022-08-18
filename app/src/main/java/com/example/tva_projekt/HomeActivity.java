@@ -1,14 +1,24 @@
 package com.example.tva_projekt;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 
 public class HomeActivity extends AppCompat {
@@ -20,11 +30,16 @@ public class HomeActivity extends AppCompat {
     Button vremeneskiPodatki;
     Button osvojeniVrh;
     Button spletnekamere;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //toolbar=findViewById(R.id.myToolBar);
+        //setSupportActionBar(toolbar);
+
         TextView btn = findViewById(R.id.btnLogout);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +102,28 @@ public class HomeActivity extends AppCompat {
                 startActivity(i);
             }
         });
-
-
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
+        case R.id.first:
+            //add the function to perform here
+            return(true);
+        case R.id.second:
+            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(i);
+        case R.id.third:
+            //add the function to perform here
+            return(true);
+    }
+        return(super.onOptionsItemSelected(item));
+    }
+
 }
