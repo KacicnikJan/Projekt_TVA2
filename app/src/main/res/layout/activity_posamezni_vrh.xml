@@ -35,12 +35,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <ListView
+        android:id="@+id/listviewvrh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listviewvrh"
-        tools:listitem="@layout/list_item_vrh"
         android:layout_marginTop="100dp"
-        />
+        tools:listitem="@layout/list_item_vrh" />
 
 </RelativeLayout>
