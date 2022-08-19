@@ -18,28 +18,29 @@ import java.util.Random;
 public class Izbira_Poti extends AppCompatActivity {
 
     ActivityIzbiraPotiBinding binding;
+    DBHelper DB;
+    Integer idVrha;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityIzbiraPotiBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        DB=new DBHelper(this);
         Intent intent = this.getIntent();
 
-        String[] imePoti = {"Prva Pot", "Druga Pot", "Smotana pot", "v Qurcu pot"};
-        String[] zahtevnost = {"Lahka označena pot", "Zelo zahtevna označena pot", "Izjemno zatevna označena pot","Lahka označena pot"};
-        String[] casHoje = {"6h 30m", "2h 25m", "3h 45m", "1h 30m"};
+
 
 
         if(intent!= null){
             String imeVrha = intent.getStringExtra("imeVrha");
             String ndmv = intent.getStringExtra("ndmv");
-
+            idVrha = intent.getIntExtra("idVrha",0);
             binding.vrhIme.setText(imeVrha);
             binding.nadmorska.setText(ndmv);
         }
-        ArrayList<Pot> potArrayList = new ArrayList<>();
+        ArrayList<Pot> potArrayList = DB.izpisiPoti(idVrha);
         /*
         for(int i=0;i<imePoti.length;i++){
             Random rnd = new Random();
@@ -58,7 +59,8 @@ public class Izbira_Poti extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(Izbira_Poti.this, Podrobno.class);
-                i.putExtra("imePoti", imePoti[position]);
+                Pot izbrana = listAdapterPot.getItem(position);
+                i.putExtra("idPoti", izbrana.idPot);
 
                 startActivity(i);
             }

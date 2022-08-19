@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="zahtevnosti_array">
+        <item>Lahka oznacena pot</item>
+        <item>Delno zahtevna oznacena pot</item>
+        <item>Zahtevna oznacena pot</item>
+        <item>Zelo zahtevna oznacena pot</item>
+        <item>Izjemno zahtevna oznacena pot</item>
+        <item>Lahka neoznacena steza</item>
+        <item>Delno zahtevna neoznacena steza</item>
+        <item>Zahtevna neoznacena steza</item>
+        <item>Zelo zahtevna neoznacena steza</item>
+        <item>Izjemno zahtevna neoznacena steza</item>
+        <item>Lahko brezpotje</item>
+        <item>Zahtevno brezpotje</item>
+        <item>Zelo zahtevno brezpotje</item>
+        <item>Alpinisticni vzpon</item>
+    </string-array>
+</resources>

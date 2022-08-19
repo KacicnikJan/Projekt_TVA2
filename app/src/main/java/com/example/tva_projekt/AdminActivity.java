@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.RadioGroup;
@@ -23,13 +24,13 @@ public class AdminActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     List<Hribovje> dropList;
     List<Vrh> dropListVrh;
-    EditText iGorovje, iVrh, iPot, iVisina, iLokacijaVrhLong, iLokacijaVrhLat, iOpisGore;
-    Spinner dropGorovje, dropVrh;
+    EditText iGorovje, iVrh, iPot, iVisina, iLokacijaVrhLong, iLokacijaVrhLat, iOpisGore, iImePoti, iOpisIzhodisca, iOpisPoti, iLokacijaIzhodisceLong, iLokacijaIzhodisceLat, iCasHoje, iLinkGalerija;
+    Spinner dropGorovje, dropVrh, dropZahtevnost;
     DBHelper DB;
     Integer checked=0;
-    int wtf=0;
     public Integer idHribovja, idVrha;
     AutoCompleteTextView autoCompleteTextView;
+
 
 
 
@@ -97,6 +98,14 @@ public class AdminActivity extends AppCompatActivity {
         dropVrh=findViewById(R.id.dropVrh);
         idHribovja=0;
         autoCompleteTextView=findViewById(R.id.autoVrh);
+        iImePoti=findViewById(R.id.imePoti);
+        iOpisIzhodisca =findViewById(R.id.opisIzhodisce);
+        iOpisPoti = findViewById(R.id.opisPot);
+        iLokacijaIzhodisceLong =findViewById(R.id.inputLokacijaIzhodisceLong);
+        iLokacijaIzhodisceLat = findViewById(R.id.inputLokacijaIzhodisceLat);
+        iCasHoje = findViewById(R.id.casHoje);
+        iLinkGalerija = findViewById(R.id.linkGalerija);
+        dropZahtevnost=findViewById(R.id.spinnerZahtevnost);
 
         DB=new DBHelper(this);
 
@@ -118,7 +127,28 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
-        dropVrh.setAdapter(vrhAdapter);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.zahtevnosti_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        dropZahtevnost.setAdapter(adapter);
+        dropZahtevnost.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String zahtevnost = adapter.getItem(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+                dropVrh.setAdapter(vrhAdapter);
         dropVrh.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -148,6 +178,14 @@ public class AdminActivity extends AppCompatActivity {
                         dropVrh.setVisibility(View.GONE);
                         autoCompleteTextView.setVisibility(View.GONE);
                         checked=0;
+                        iImePoti.setVisibility(View.GONE);
+                        iOpisIzhodisca.setVisibility(View.GONE);
+                        iOpisPoti.setVisibility(View.GONE);
+                        iLokacijaIzhodisceLong.setVisibility(View.GONE);
+                        iLokacijaIzhodisceLat.setVisibility(View.GONE);
+                        iCasHoje.setVisibility(View.GONE);
+                        iLinkGalerija.setVisibility(View.GONE);
+                        dropZahtevnost.setVisibility(View.GONE);
 
 
                         break;
@@ -163,6 +201,14 @@ public class AdminActivity extends AppCompatActivity {
                         dropVrh.setVisibility(View.GONE);
                         autoCompleteTextView.setVisibility(View.GONE);
                         checked=1;
+                        iImePoti.setVisibility(View.GONE);
+                        iOpisIzhodisca.setVisibility(View.GONE);
+                        iOpisPoti.setVisibility(View.GONE);
+                        iLokacijaIzhodisceLong.setVisibility(View.GONE);
+                        iLokacijaIzhodisceLat.setVisibility(View.GONE);
+                        iCasHoje.setVisibility(View.GONE);
+                        iLinkGalerija.setVisibility(View.GONE);
+                        dropZahtevnost.setVisibility(View.GONE);
 
                         break;
                     case R.id.radio_pot:
@@ -176,6 +222,14 @@ public class AdminActivity extends AppCompatActivity {
                         dropGorovje.setVisibility(View.GONE);
                         dropVrh.setVisibility(View.GONE);
                         autoCompleteTextView.setVisibility(View.VISIBLE);
+                        iImePoti.setVisibility(View.VISIBLE);
+                        iOpisIzhodisca.setVisibility(View.VISIBLE);
+                        iOpisPoti.setVisibility(View.VISIBLE);
+                        iLokacijaIzhodisceLong.setVisibility(View.VISIBLE);
+                        iLokacijaIzhodisceLat.setVisibility(View.VISIBLE);
+                        iCasHoje.setVisibility(View.VISIBLE);
+                        iLinkGalerija.setVisibility(View.VISIBLE);
+                        dropZahtevnost.setVisibility(View.VISIBLE);
 
                         checked=2;
 
@@ -233,6 +287,32 @@ public class AdminActivity extends AppCompatActivity {
                             }
                         }
                     case 2: //dodajanje poti
+
+                        String imeGore = autoCompleteTextView.getText().toString();
+                        lat = iLokacijaIzhodisceLat.getText().toString();
+                        lon = iLokacijaIzhodisceLong.getText().toString();
+                        String imePoti = iImePoti.getText().toString();
+                        String casHoje = iCasHoje.getText().toString();
+                        String opisPoti = iOpisPoti.getText().toString();
+                        String zahtevnost = dropZahtevnost.getSelectedItem().toString();
+                        String link = iLinkGalerija.getText().toString();
+                        String izhodisceDostop = iOpisIzhodisca.getText().toString();
+                        Integer idVrha=DB.pridobiIdVrha(imeGore);
+
+                        if(izhodisceDostop.equals("") || link.equals("") || zahtevnost.equals("") || opisPoti.equals("") || imeGore.equals("") || imePoti.equals("") || lat.equals("") || lon.equals("")){
+                            Toast.makeText(AdminActivity.this, "Please enter all fields",Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Pot pot= new Pot(0, idVrha, imePoti, zahtevnost, casHoje, lat, lon, opisPoti, link, izhodisceDostop);
+                            Boolean insert=DB.dodajPot(pot.idPot, pot.idVrha, pot.imePoti, pot.zahtevnost, pot.casHoje, pot.izhodisceLat, pot.izhodisceLong, pot.opisPoti, pot.link, pot.izhodisceDostop);
+                            if (insert==true) {
+                                Toast.makeText(AdminActivity.this, "Entered successfully", Toast.LENGTH_SHORT).show();
+                                //Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
+                                //startActivity(intent);
+                            }else {
+                                Toast.makeText(AdminActivity.this,"Input failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                 }
 
                 startActivity(new Intent(AdminActivity.this, AdminActivity.class));

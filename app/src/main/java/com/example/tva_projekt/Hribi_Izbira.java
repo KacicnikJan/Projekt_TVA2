@@ -76,6 +76,10 @@ public class Hribi_Izbira extends AppCompatActivity {
             Intent i3 = new Intent(getApplicationContext(),WeatherActivity.class);
             startActivity(i3);
             return true;
+        case R.id.stiri:
+            Intent i7 = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i7);
+            return true;
     }
         return(super.onOptionsItemSelected(item));
     }
