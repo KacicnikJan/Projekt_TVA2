@@ -51,15 +51,6 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        TextView btn=findViewById(R.id.btn_Nazaj);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WeatherActivity.this, HomeActivity.class));
-            }
-        });
-
-
         weatherState = findViewById(R.id.weatherCondition);
         Temperature = findViewById(R.id.temperature);
         mweatherIcon = findViewById(R.id.weatherIcon);
@@ -228,12 +219,15 @@ public class WeatherActivity extends AppCompatActivity {
             startActivity(i2);
             return true;
         case R.id.second:
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(i);
+            finish();
             return true;
         case R.id.third:
-            Intent i3 = new Intent(getApplicationContext(),WeatherActivity.class);
+            Intent i3 = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(i3);
+            return true;
+        case R.id.stiri:
+            Intent i7 = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i7);
             return true;
     }
         return(super.onOptionsItemSelected(item));

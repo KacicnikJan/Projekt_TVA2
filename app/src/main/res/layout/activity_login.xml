@@ -13,8 +13,8 @@
         android:layout_marginBottom="76dp"
         android:elegantTextHeight="true"
         android:text="@string/label_header"
-        android:textSize="34sp"
         android:textStyle="bold"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/inputUsername1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -34,6 +34,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/username"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -57,6 +58,8 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/password"
+        android:textStyle="bold"
+
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -89,6 +92,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/login_btn"
+        android:textStyle="bold"
+        android:background="@drawable/button"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_acc"
+            android:textStyle="italic"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -130,6 +136,8 @@
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:text="en"
+        android:textStyle="bold"
+        android:background="@drawable/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -137,7 +145,9 @@
         android:id="@+id/btn_slo"
         android:layout_width="101dp"
         android:layout_height="48dp"
+        android:textStyle="bold"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="SI"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

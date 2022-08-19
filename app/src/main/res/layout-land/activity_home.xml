@@ -6,123 +6,126 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/menu"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_logout"
+        android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/btnRazlizcnePoti"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btnIzbiraPoti"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnVremenskiPodatki"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btnVremenski_podatki"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/btnZapiskiPoti"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_zapiski_poti"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20" />
+        app:layout_constraintVertical_bias="0.30" />
 
     <Button
         android:id="@+id/btnOsvojeniVrhovi"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_osvojeni_vrhovi"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <Button
         android:id="@+id/btnRazmereNaVrhovih"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_razmere_na_vrhovih"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.50" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/btnSpletneKamere"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_spletne_kamere"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.80" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <Button
         android:id="@+id/btnZemljevid"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+
+        android:layout_height="120px"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
         android:text="@string/btn_zemljevid"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="100" />
+        app:layout_constraintVertical_bias="0.60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
