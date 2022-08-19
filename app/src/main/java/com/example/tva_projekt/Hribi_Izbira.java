@@ -69,11 +69,10 @@ public class Hribi_Izbira extends AppCompatActivity {
             startActivity(i2);
             return true;
         case R.id.second:
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(i);
+            finish();
             return true;
         case R.id.third:
-            Intent i3 = new Intent(getApplicationContext(),WeatherActivity.class);
+            Intent i3 = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(i3);
             return true;
         case R.id.stiri:

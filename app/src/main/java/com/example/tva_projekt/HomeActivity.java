@@ -30,20 +30,15 @@ public class HomeActivity extends AppCompat {
     Button vremeneskiPodatki;
     Button osvojeniVrh;
     Button spletnekamere;
+    Button izpis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        TextView btn = findViewById(R.id.btnLogout);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-            }
-        });
 
+        izpis = findViewById(R.id.btnLogout);
         username = (EditText) findViewById(R.id.inputUsername1);
         password = (EditText) findViewById(R.id.inputPassword1);
         izbiriHriba = (Button) findViewById(R.id.btnRazlizcnePoti);
@@ -128,4 +123,16 @@ public class HomeActivity extends AppCompat {
         return(super.onOptionsItemSelected(item));
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        izpis = findViewById(R.id.btnLogout);
+
+        izpis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+    }
 }
