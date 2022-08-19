@@ -39,6 +39,8 @@ public class VrhSearchAdapter extends ArrayAdapter<Vrh> {
         textViewImeHriba.setText(vrh.getImeVrha());
         TextView textViewVisina = view.findViewById(R.id.textViewVisinaHriba);
         textViewVisina.setText(vrh.getNdmv().toString());
+        TextView textViewIdHriba = view.findViewById(R.id.textViewIdHriba);
+        textViewIdHriba.setText(vrh.getIdVrha().toString());
 
         return view;
     }
@@ -64,7 +66,7 @@ public class VrhSearchAdapter extends ArrayAdapter<Vrh> {
             FilterResults filterResults = new FilterResults();
             if(charSequence == null || charSequence.length()== 0){
                 filterResults.values = new ArrayList<Vrh>();
-                //filterResults.count=vrhs.size();
+
             }
             else{
                 DBHelper dbHelper = new DBHelper(context);

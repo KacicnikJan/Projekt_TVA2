@@ -1,10 +1,12 @@
 package com.example.tva_projekt;
 
 public class Pot {
-    String idPot, imePoti, zahtevnost, casHoje, izhodisceLat, izhodisceLong, opisPoti, link, idVrha, izhodisceDostop;
+    int idPot, idVrha;
+    String imePoti, zahtevnost, casHoje, izhodisceLat, izhodisceLong, opisPoti, link, izhodisceDostop;
 
-    public Pot(String idPot, String imePoti, String zahtevnost, String casHoje, String izhodisceLat, String izhodisceLong, String opisPoti, String link, String idVrha, String izhodisceDostop) {
+    public Pot(int idPot, int idVrha, String imePoti, String zahtevnost, String casHoje, String izhodisceLat, String izhodisceLong, String opisPoti, String link, String izhodisceDostop) {
         this.idPot = idPot;
+        this.idVrha = idVrha;
         this.imePoti = imePoti;
         this.zahtevnost = zahtevnost;
         this.casHoje = casHoje;
@@ -12,16 +14,26 @@ public class Pot {
         this.izhodisceLong = izhodisceLong;
         this.opisPoti = opisPoti;
         this.link = link;
-        this.idVrha = idVrha;
         this.izhodisceDostop = izhodisceDostop;
     }
+    public Pot(){
 
-    public String getIdPot() {
+    }
+
+    public int getIdPot() {
         return idPot;
     }
 
-    public void setIdPot(String idPot) {
+    public void setIdPot(int idPot) {
         this.idPot = idPot;
+    }
+
+    public int getIdVrha() {
+        return idVrha;
+    }
+
+    public void setIdVrha(int idVrha) {
+        this.idVrha = idVrha;
     }
 
     public String getImePoti() {
@@ -78,14 +90,6 @@ public class Pot {
 
     public void setLink(String link) {
         this.link = link;
-    }
-
-    public String getIdVrha() {
-        return idVrha;
-    }
-
-    public void setIdVrha(String idVrha) {
-        this.idVrha = idVrha;
     }
 
     public String getIzhodisceDostop() {

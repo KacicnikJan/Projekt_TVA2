@@ -121,8 +121,8 @@ public class HomeActivity extends AppCompat {
             startActivity(i3);
             return true;
         case R.id.stiri:
-            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
-            startActivity(i);
+            Intent i7 = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i7);
             return true;
     }
         return(super.onOptionsItemSelected(item));

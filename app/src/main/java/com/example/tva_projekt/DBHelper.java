@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public SQLiteDatabase db;
 
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 5);
+        super(context, "Login.db", null, 6);
     }
 
     @Override
@@ -29,6 +29,8 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("create Table users(id integer primary key autoincrement,username TEXT, password TEXT)");
         MyDB.execSQL("create Table dhribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
         MyDB.execSQL("create Table dvrh(idVrha INTEGER primary key autoincrement,imeVrha TEXT NOT NULL, ndmv INTEGER NOT NULL, longitude TEXT NOT NULL, latitude TEXT NOT NULL, opis TEXT NOT NULL, idHribovja INTEGER NOT NULL, FOREIGN KEY(idHribovja) REFERENCES dhribovje(id))");
+        MyDB.execSQL("create Table dpot(idPot INTEGER primary key autoincrement, imePoti TEXT NOT NULL, zahtevnost TEXT NOT NULL, casHoje TEXT NOT NULL, izhodisceLat TEXT NOT NULL, izhodisceLong TEXT NOT NULL, opisPoti TEXT NOT NULL, link TEXT NOT NULL, idVrha INTEGER NOT NULL, izhodisceDostop TEXT NOT NULL, FOREIGN KEY(idVrha) REFERENCES dvrh(idVrha))");
+
     }
 
 
@@ -39,6 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists admin");
         MyDB.execSQL("drop Table if exists dhribovje");
         MyDB.execSQL("drop table if exists dvrh");
+        MyDB.execSQL("drop table if exists dpot");
     }
 
     public Boolean insertData(String username, String password){
@@ -119,6 +122,34 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
 
     }
+
+    public  Boolean dodajPot(Integer idPot, Integer idVrha, String imePoti, String zahtevnost, String casHoje, String izhodisceLat, String izhodisceLong, String opisPoti, String link, String izhodisceDostop){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+
+
+        ContentValues values=new ContentValues();
+
+        values.put("idVrha", idVrha);
+        values.put("imePoti", imePoti);
+        values.put("zahtevnost", zahtevnost);
+        values.put("casHoje", casHoje);
+        values.put("izhodisceLat", izhodisceLat);
+        values.put("izhodisceLong", izhodisceLong);
+        values.put("opisPoti", opisPoti);
+        values.put("link", link);
+        values.put("izhodisceDostop", izhodisceDostop);
+        long result=MyDB.insert("dpot",null,values);
+        if (result==-1) return false;
+        else
+            return true;
+    }
+    public Integer pridobiIdVrha(CharSequence imeVrha){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("SELECT idVrha FROM dvrh WHERE imeVrha LIKE ?",new String[]{imeVrha.toString()});
+        cursor.moveToFirst();
+        Integer result=cursor.getInt(0);
+        return result;
+    }
     public Integer pridobiStVrhov(Integer idHribovja){
         SQLiteDatabase db=this.getReadableDatabase();
 
@@ -163,6 +194,53 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursorVrhovi.close();
         return vrhArrayList;
+    }
+    public Pot izpisPodrobnoPot(Integer idPot){
+
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursorPoti = db.rawQuery("SELECT * FROM dpot WHERE idPot=?",new String[]{idPot.toString()});
+        cursorPoti.moveToFirst();
+                Pot pot = new Pot();
+                pot.setIdPot(Integer.parseInt(cursorPoti.getString(0)));
+                pot.setImePoti(cursorPoti.getString(1));
+                pot.setZahtevnost(cursorPoti.getString(2));
+                pot.setCasHoje(cursorPoti.getString(3));
+                pot.setIzhodisceLat(cursorPoti.getString(4));
+                pot.setIzhodisceLong(cursorPoti.getString(5));
+                pot.setOpisPoti(cursorPoti.getString(6));
+                pot.setLink(cursorPoti.getString(7));
+                pot.setIdVrha(Integer.parseInt(cursorPoti.getString(8)));
+                pot.setIzhodisceDostop(cursorPoti.getString(9));
+            return pot;
+
+    }
+
+    public ArrayList<Pot> izpisiPoti(Integer idVrha){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursorPoti = db.rawQuery("SELECT * FROM dpot WHERE idVrha=?",new String[]{idVrha.toString()});
+        ArrayList<Pot> potiArrayList = new ArrayList<>();
+
+        if(cursorPoti.moveToFirst()){
+            do {
+                Pot pot = new Pot();
+                //cas opisPoti TEXT NOT NULL, link TEXT NOT NULL, idVrha INTEGER NOT NULL, izhodisceDostop TEXT NOT NULL, FOREIGN KEY(idVrha) REFERENCES dvrh(idVrha))");
+                pot.setIdPot(Integer.parseInt(cursorPoti.getString(0)));
+                pot.setImePoti(cursorPoti.getString(1));
+                pot.setZahtevnost(cursorPoti.getString(2));
+                pot.setCasHoje(cursorPoti.getString(3));
+                pot.setIzhodisceLat(cursorPoti.getString(4));
+                pot.setIzhodisceLong(cursorPoti.getString(5));
+                pot.setOpisPoti(cursorPoti.getString(6));
+                pot.setLink(cursorPoti.getString(7));
+                pot.setIdVrha(Integer.parseInt(cursorPoti.getString(8)));
+                pot.setIzhodisceDostop(cursorPoti.getString(9));
+
+
+                potiArrayList.add(pot);
+            } while (cursorPoti.moveToNext());
+        }
+        cursorPoti.close();
+        return potiArrayList;
     }
     public List<Vrh> search(String keyword){
         List<Vrh> vrhs=null;
