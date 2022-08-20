@@ -31,10 +31,6 @@ public class AdminActivity extends AppCompatActivity {
     public Integer idHribovja, idVrha;
     AutoCompleteTextView autoCompleteTextView;
 
-
-
-
-
     private BaseAdapter gorovjeAdapter = new BaseAdapter() {
         @Override
         public int getCount() {

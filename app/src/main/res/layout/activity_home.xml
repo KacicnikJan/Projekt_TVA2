@@ -7,22 +7,6 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button"
-        android:text="@string/btn_logout"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible" />
-
-    <Button
         android:id="@+id/btnRazlizcnePoti"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,9 +66,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
+
     <Button
         android:id="@+id/btn_dodaj_zapis"
         android:layout_width="0dp"
+        android:background="@drawable/button"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

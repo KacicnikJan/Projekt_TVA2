@@ -3,42 +3,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TVA_projekt/app/src/main/res/drawable/button.xml" value="0.2745" />
         <entry key="..\:/TVA_projekt/app/src/main/res/drawable/ic_baseline_security_24.xml" value="0.196" />
         <entry key="..\:/TVA_projekt/app/src/main/res/drawable/ic_email.xml" value="0.196" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/drawable/shape.xml" value="0.2965" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout-land/activity_home.xml" value="0.33" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout-land/activity_login.xml" value="0.18" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_admin.xml" value="0.25" />
-        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_admin2.xml" value="0.18704710144927536" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_city_finder.xml" value="0.18704710144927536" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_dodaj_obisk.xml" value="0.18704710144927536" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_forum.xml" value="0.1" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_hribi_izbira.xml" value="0.14463019250253292" />
-        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_izbira_poti.xml" value="0.25" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_mapa_prikaz.xml" value="0.20742753623188406" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_maps.xml" value="0.1852355072463768" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_maps2.xml" value="0.36666666666666664" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_podrobno.xml" value="0.25" />
         <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_register.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout-land/activity_home.xml" value="0.14947089947089948" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout-land/drawable/ic_baseline_home_24.xml" value="0.139" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout-land/drawable/ic_dodajsliko.xml" value="0.1" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_spletne_kamere.xml" value="0.1945945945945946" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_weather.xml" value="0.2599099099099099" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/activity_zapisek.xml" value="0.26721014492753625" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/layout/vrh_search_layout.xml" value="0.11961301671064203" />
+        <entry key="..\:/TVA_projekt/app/src/main/res/menu/menu_main.xml" value="0.24504504504504504" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_admin.xml" value="0.2328828828828829" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_dodaj_obisk.xml" value="0.1" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_home.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_hribi_izbira.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_izbira_poti.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_main.xml" value="0.1527027027027027" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_maps.xml" value="0.1527027027027027" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_osvojeni_vrh.xml" value="0.1527027027027027" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_podrobno.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_posamezni_vrh.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_register.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_zapisek.xml" value="0.12792792792792793" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/content_main.xml" value="0.1527027027027027" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item_pot.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item_vrh.xml" value="0.264" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_view_obiski.xml" value="0.264" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/pot_search_layout.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/row_hribovje_spinner.xml" value="0.1" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/row_vrh_spinner.xml" value="0.1" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/vrh_search_layout.xml" value="0.19298245614035087" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/vrh_search_layout.xml" value="0.264" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/menu/menu.xml" value="0.16306306306306306" />
-        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/menu/menu_main.xml" value="0.1527027027027027" />
       </map>
     </option>
   </component>
