@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tva_projekt.databinding.ActivityIzbiraPotiBinding;
@@ -13,6 +14,7 @@ public class Podrobno extends AppCompatActivity {
     ActivityPodrobnoBinding binding;
     DBHelper DB;
     Integer idPot;
+    TextView lok, opisPoti, opisIzhodisce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,15 @@ public class Podrobno extends AppCompatActivity {
 
         }
         Pot pot = DB.izpisPodrobnoPot(idPot);
-        Toast.makeText(Podrobno.this, pot.imePoti, Toast.LENGTH_SHORT).show();
+        lok = findViewById(R.id.latitude);
+        opisIzhodisce=findViewById(R.id.opisIzhodisce);
+        opisPoti=findViewById(R.id.opisPot);
+        lok.setText(pot.izhodisceLat + " °N, " + pot.izhodisceLong + " °E");
+        opisIzhodisce.setText("Navodila do izhodišča: " + pot.izhodisceDostop);
+        opisPoti.setText("Opis poti: " + pot.opisPoti);
+
+
+
 
 
     }

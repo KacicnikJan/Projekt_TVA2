@@ -65,6 +65,8 @@ public class LoginActivity extends AppCompat {
                     if (checkuserpass==true){
                         Toast.makeText(LoginActivity.this,"Sign in succesfull",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        Integer idUser = DB.pridobiIdUserja(user);
+                        intent.putExtra("idUser", idUser);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this,"Invalid credentials",Toast.LENGTH_SHORT).show();

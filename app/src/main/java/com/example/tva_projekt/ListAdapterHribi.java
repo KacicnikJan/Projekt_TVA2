@@ -18,6 +18,7 @@ public class ListAdapterHribi extends ArrayAdapter<Hribovje> {
     }
 
 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
@@ -27,8 +28,8 @@ public class ListAdapterHribi extends ArrayAdapter<Hribovje> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item,parent,false);
 
         }
+
         TextView gorovje = convertView.findViewById(R.id.gorovje);
-        TextView gorovjeSteviloGor = convertView.findViewById(R.id.gorovjeSteviloGor);
 
         gorovje.setText(hribovje.ime);
 

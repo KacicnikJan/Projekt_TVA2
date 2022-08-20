@@ -28,6 +28,7 @@
     <string name="btn_spletne_kamere">WEB CAMERAS</string>
     <string name="btn_zemljevid">MAPS</string>
     <string name="btn_logout">LOGOUT</string>
+    <string name="btn_dodaj_zapis"> ADD CONQUER LOG</string>
 
     <string name="facebook_app_id" translatable="false">608827034097783</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb608827034097783</string>
