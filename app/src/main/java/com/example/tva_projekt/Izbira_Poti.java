@@ -27,16 +27,13 @@ public class Izbira_Poti extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityIzbiraPotiBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        DB=new DBHelper(this);
+        DB = new DBHelper(this);
         Intent intent = this.getIntent();
 
-
-
-
-        if(intent!= null){
+        if (intent != null) {
             String imeVrha = intent.getStringExtra("imeVrha");
             String ndmv = intent.getStringExtra("ndmv");
-            idVrha = intent.getIntExtra("idVrha",0);
+            idVrha = intent.getIntExtra("idVrha", 0);
             binding.vrhIme.setText(imeVrha);
             binding.nadmorska.setText(ndmv);
         }
@@ -66,28 +63,32 @@ public class Izbira_Poti extends AppCompatActivity {
             }
         });
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
-        case R.id.first:
-            Intent i2 = new Intent(getApplicationContext(),Hribi_Izbira.class);
-            startActivity(i2);
-            return true;
-        case R.id.second:
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(i);
-            return true;
-        case R.id.third:
-            Intent i3 = new Intent(getApplicationContext(),WeatherActivity.class);
-            startActivity(i3);
-            return true;
-    }
-        return(super.onOptionsItemSelected(item));
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.first:
+                Intent i2 = new Intent(getApplicationContext(), Hribi_Izbira.class);
+                startActivity(i2);
+                return true;
+            case R.id.second:
+                finish();
+                return true;
+            case R.id.third:
+                Intent i3 = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i3);
+                return true;
+            case R.id.stiri:
+                Intent i7 = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(i7);
+                return true;
+        }
+        return (super.onOptionsItemSelected(item));
     }
 }

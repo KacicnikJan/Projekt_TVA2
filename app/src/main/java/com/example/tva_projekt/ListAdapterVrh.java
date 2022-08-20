@@ -42,14 +42,9 @@ public class ListAdapterVrh extends ArrayAdapter<Vrh> {
             convertView.findViewById(R.id.slika_hrib).setVisibility(View.VISIBLE);
         }
 
-
         vrhIme.setText(vrh.imeVrha);
         visina.setText(vrh.ndmv.toString());
 
-
-
         return convertView;
-
-
     }
 }

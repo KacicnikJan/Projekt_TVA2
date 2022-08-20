@@ -18,7 +18,6 @@ public class ListAdapterPot extends ArrayAdapter<Pot> {
         super(context, R.layout.list_item_pot, potArrayList);
     }
 
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
@@ -32,16 +31,11 @@ public class ListAdapterPot extends ArrayAdapter<Pot> {
         TextView zahtevnost = convertView.findViewById(R.id.zahtevnost);
         TextView casHoje = convertView.findViewById(R.id.casHoje);
 
-
-
         imePoti.setText(pot.imePoti);
         zahtevnost.setText(pot.zahtevnost);
         casHoje.setText(pot.casHoje);
 
-
-
         return convertView;
-
-
     }
+
 }
