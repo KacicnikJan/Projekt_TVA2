@@ -6,11 +6,15 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.text.BoringLayout;
 import android.util.SparseIntArray;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +22,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME="Login.db";
     public SQLiteDatabase db;
-
+    byte[] slikaInBytes;
+    private Object Context;
+    Context context;
     public DBHelper(Context context) {
-        super(context, "Login.db", null, 6);
+        super(context, "Login.db", null, 7);
     }
 
     @Override
@@ -30,6 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("create Table dhribovje(id INTEGER primary key autoincrement,imeHribovja TEXT NOT NULL)");
         MyDB.execSQL("create Table dvrh(idVrha INTEGER primary key autoincrement,imeVrha TEXT NOT NULL, ndmv INTEGER NOT NULL, longitude TEXT NOT NULL, latitude TEXT NOT NULL, opis TEXT NOT NULL, idHribovja INTEGER NOT NULL, FOREIGN KEY(idHribovja) REFERENCES dhribovje(id))");
         MyDB.execSQL("create Table dpot(idPot INTEGER primary key autoincrement, imePoti TEXT NOT NULL, zahtevnost TEXT NOT NULL, casHoje TEXT NOT NULL, izhodisceLat TEXT NOT NULL, izhodisceLong TEXT NOT NULL, opisPoti TEXT NOT NULL, link TEXT NOT NULL, idVrha INTEGER NOT NULL, izhodisceDostop TEXT NOT NULL, FOREIGN KEY(idVrha) REFERENCES dvrh(idVrha))");
+        MyDB.execSQL("create Table dobisk(idObisk INTEGER primary key autoincrement, idPot INTEGER NOT NULL, idUser INTEGER NOT NULL, komentar TEXT, datum TEXT NOT NULL, slika BLOB, FOREIGN KEY(idUser) REFERENCES users(id), FOREIGN KEY(idPot) REFERENCES dpot(idPot))");
 
     }
 
@@ -42,6 +49,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists dhribovje");
         MyDB.execSQL("drop table if exists dvrh");
         MyDB.execSQL("drop table if exists dpot");
+        MyDB.execSQL("drop table if exists dobisk");
     }
 
     public Boolean insertData(String username, String password){
@@ -150,6 +158,13 @@ public class DBHelper extends SQLiteOpenHelper {
         Integer result=cursor.getInt(0);
         return result;
     }
+    public Integer pridobiIdPoti(CharSequence imePoti){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("SELECT idPot FROM dpot WHERE imePoti LIKE ?",new String[]{imePoti.toString()});
+        cursor.moveToFirst();
+        Integer result=cursor.getInt(0);
+        return result;
+    }
     public Integer pridobiStVrhov(Integer idHribovja){
         SQLiteDatabase db=this.getReadableDatabase();
 
@@ -158,6 +173,13 @@ public class DBHelper extends SQLiteOpenHelper {
             return result;
         }
         else return 0;
+    }
+    public int pridobiIdUserja(String user){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursorUser=db.rawQuery("SELECT id FROM users WHERE username LIKE ?", new String[]{user});
+        cursorUser.moveToFirst();
+        int idUser = cursorUser.getInt(0);
+        return idUser;
     }
     public ArrayList<Hribovje> izpisiHribovja(){
         SQLiteDatabase db=this.getWritableDatabase();
@@ -194,6 +216,25 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursorVrhovi.close();
         return vrhArrayList;
+    }
+
+    public boolean vnesiObisk (Integer idUser, Integer idPot, Bitmap slika, String datum, String komentar){
+        SQLiteDatabase db = getReadableDatabase();
+        ByteArrayOutputStream objectByteOutputStream=new ByteArrayOutputStream();
+        slika.compress(Bitmap.CompressFormat.JPEG, 100, objectByteOutputStream);
+        slikaInBytes=objectByteOutputStream.toByteArray();
+        ContentValues values=new ContentValues();
+
+        values.put("slika", slikaInBytes);
+        values.put("idUser", idUser);
+        values.put("idPot", idPot);
+        values.put("komentar", komentar);
+        values.put("datum", datum);
+
+        long result=db.insert("dobisk", null, values);
+        if(result<=0){
+            return false;
+        } else return true;
     }
     public Pot izpisPodrobnoPot(Integer idPot){
 
@@ -266,6 +307,36 @@ public class DBHelper extends SQLiteOpenHelper {
             vrhs=null;
         }
         return vrhs;
+    }
+
+    public List<Pot> poisci(String keyword){
+        List<Pot> pots=null;
+        try{
+            SQLiteDatabase db=this.getReadableDatabase();
+            Cursor cursorPoti = db.rawQuery("Select * FROM dpot WHERE imePoti LIKE ?", new String[]{"%" + keyword + "%"});
+            if (cursorPoti.moveToFirst()){
+                pots=new ArrayList<>();
+                do {
+                    Pot pot = new Pot();
+                    //cas opisPoti TEXT NOT NULL, link TEXT NOT NULL, idVrha INTEGER NOT NULL, izhodisceDostop TEXT NOT NULL, FOREIGN KEY(idVrha) REFERENCES dvrh(idVrha))");
+                    pot.setIdPot(Integer.parseInt(cursorPoti.getString(0)));
+                    pot.setImePoti(cursorPoti.getString(1));
+                    pot.setZahtevnost(cursorPoti.getString(2));
+                    pot.setCasHoje(cursorPoti.getString(3));
+                    pot.setIzhodisceLat(cursorPoti.getString(4));
+                    pot.setIzhodisceLong(cursorPoti.getString(5));
+                    pot.setOpisPoti(cursorPoti.getString(6));
+                    pot.setLink(cursorPoti.getString(7));
+                    pot.setIdVrha(Integer.parseInt(cursorPoti.getString(8)));
+                    pot.setIzhodisceDostop(cursorPoti.getString(9));
+                    pots.add(pot);
+                }
+                while (cursorPoti.moveToNext());
+            }
+        } catch (Exception e){
+            pots=null;
+        }
+        return pots;
     }
 
 

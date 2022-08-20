@@ -27,6 +27,7 @@ public class Osvojeni_vrh extends AppCompatActivity {
     ActivityHribiIzbiraBinding binding;
     DBHelper DB;
     ArrayList<Vrh> noviArrayList=new ArrayList<>();
+    Integer idUser;
 
 
 
@@ -37,7 +38,12 @@ public class Osvojeni_vrh extends AppCompatActivity {
 
         binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent intent = this.getIntent();
 
+        if(intent!= null) {
+            idUser = intent.getIntExtra("idUser",0);
+
+        }
         DB=new DBHelper(this);
         noviArrayList=DB.izpisiVrhove(1);
 

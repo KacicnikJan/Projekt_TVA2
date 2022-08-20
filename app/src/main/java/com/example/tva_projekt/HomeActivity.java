@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tva_projekt.databinding.ActivityPodrobnoBinding;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -28,8 +29,10 @@ public class HomeActivity extends AppCompat {
     Button izbiraMape;
     DBHelper DB;
     Button vremeneskiPodatki;
+    Button dodajZapis;
     Button osvojeniVrh;
     Button spletnekamere;
+    Integer idUser;
     Button izpis;
 
     @Override
@@ -38,11 +41,32 @@ public class HomeActivity extends AppCompat {
         setContentView(R.layout.activity_home);
 
 
+
+
+            DB=new DBHelper(this);
+            Intent intent = this.getIntent();
+
+            if(intent!= null) {
+                idUser = intent.getIntExtra("idUser",0);
+
+            }
+
+
+
+        TextView btn = findViewById(R.id.btnLogout);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            }
+        });
+
         izpis = findViewById(R.id.btnLogout);
         username = (EditText) findViewById(R.id.inputUsername1);
         password = (EditText) findViewById(R.id.inputPassword1);
         izbiriHriba = (Button) findViewById(R.id.btnRazlizcnePoti);
         izbiraMape = (Button) findViewById(R.id.btnZemljevid);
+        dodajZapis = (Button) findViewById(R.id.btn_dodaj_zapis);
         vremeneskiPodatki=(Button) findViewById(R.id.btnVremenskiPodatki);
         osvojeniVrh=(Button) findViewById(R.id.btnOsvojeniVrhovi);
         spletnekamere=(Button) findViewById(R.id.btnSpletneKamere);
@@ -75,12 +99,22 @@ public class HomeActivity extends AppCompat {
                 startActivity(i);
             }
         });
+        dodajZapis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),DodajObisk.class);
+                i.putExtra("idUser", idUser);
+                startActivity(i);
+            }
+        });
 
         osvojeniVrh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent i = new Intent(getApplicationContext(),Osvojeni_vrh.class);
+                i.putExtra("idUser", idUser);
                 startActivity(i);
             }
         });

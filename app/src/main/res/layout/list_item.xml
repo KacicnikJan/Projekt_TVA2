@@ -32,22 +32,11 @@
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/gorovjeTekst"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Neki tekst izbira gorovje"/>
+
 
             </LinearLayout>
         </LinearLayout>
-        <TextView
-            android:id="@+id/gorovjeSteviloGor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:layout_alignParentRight="true"
-            android:text="število gor npr."/>
+
 
     </RelativeLayout>
 </LinearLayout>
