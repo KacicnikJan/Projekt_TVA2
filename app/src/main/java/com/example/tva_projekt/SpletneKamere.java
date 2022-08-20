@@ -13,32 +13,37 @@ import android.widget.ImageView;
 
 import com.example.tva_projekt.databinding.ActivityHribiIzbiraBinding;
 import com.facebook.CallbackManager;
+import com.facebook.login.widget.LoginButton;
 import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareButton;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 public class SpletneKamere extends AppCompatActivity {
 
-    Button loginFb;
     ImageView imageView;
     CallbackManager callbackManager;
     ShareButton sbLink;
     ShareButton sbPhoto;
+    LoginButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spletne_kamere);
-
-
-        loginFb=findViewById(R.id.btnLoginFB);
         imageView=findViewById(R.id.imageView);
-        callbackManager=CallbackManager.Factory.create();
         sbLink=findViewById(R.id.btnShareLink);
         sbPhoto=findViewById(R.id.btnSharePhoto);
+        loginButton=findViewById(R.id.btnFBlog);
+
         imageView.setImageResource(R.drawable.img);
+
+        callbackManager=CallbackManager.Factory.create();
+
 
     }
 

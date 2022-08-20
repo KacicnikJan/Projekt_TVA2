@@ -41,6 +41,8 @@ public class LoginActivity extends AppCompat {
         btnEN=findViewById(R.id.btn_en);
         btnSI=findViewById(R.id.btn_slo);
 
+
+
         btnEN.setOnClickListener(view ->{
             lang.updateResources("en");
             recreate();
@@ -83,4 +85,5 @@ public class LoginActivity extends AppCompat {
         });
 
     }
+
 }
