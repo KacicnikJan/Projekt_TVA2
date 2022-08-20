@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.BoringLayout;
 import android.util.SparseIntArray;
 
@@ -197,6 +198,10 @@ public class DBHelper extends SQLiteOpenHelper {
         cursorHribovja.close();
         return hribovjeArrayList;
     }
+
+
+
+
     public ArrayList<Vrh> izpisiVrhove(Integer idHribovja){
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursorVrhovi = db.rawQuery("SELECT * FROM dvrh WHERE idHribovja=? ORDER BY ndmv DESC",new String[]{idHribovja.toString()});
@@ -217,6 +222,60 @@ public class DBHelper extends SQLiteOpenHelper {
         cursorVrhovi.close();
         return vrhArrayList;
     }
+    public String pridobiPodatkeVrh(Integer idObisk){
+       SQLiteDatabase db = getReadableDatabase();
+       Cursor cursor = db.rawQuery("SELECT imeVrha FROM dvrh, dpot, dobisk WHERE dvrh.idVrha=dpot.idVrha AND dpot.idPot=dobisk.idPot and dobisk.idObisk=?",new String[]{idObisk.toString()});
+       cursor.moveToFirst();
+       String resulta=cursor.getString(0);
+       return resulta;
+    }
+    public String pridobiPodatkePot(Integer idObisk){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT imePoti FROM dpot, dobisk WHERE dpot.idPot=dobisk.idPot and dobisk.idObisk=?",new String[]{idObisk.toString()});
+        cursor.moveToFirst();
+        String result=cursor.getString(0);
+        return result;
+    }
+    public ArrayList<Obisk> izpisiObiske(Integer idUser){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM dobisk WHERE idUser=?",new String[]{idUser.toString()});
+        ArrayList<Obisk> obiskArrayList = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do {
+                Obisk obisk = new Obisk();
+                obisk.setIdObisk(cursor.getInt(0));
+                obisk.setIdPot(cursor.getInt(1));
+                obisk.setIdUser(cursor.getInt(2));
+                obisk.setKomentar(cursor.getString(3));
+                obisk.setDatum(cursor.getString(4));
+                slikaInBytes = cursor.getBlob(5);
+                Bitmap bitmapSlika = BitmapFactory.decodeByteArray(slikaInBytes,0,slikaInBytes.length);
+                obisk.setSlika(bitmapSlika);
+                obiskArrayList.add(obisk);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return obiskArrayList;
+    }
+
+    public Obisk pridobiObisk(Integer idObisk){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM dobisk WHERE idObisk=?", new String[]{idObisk.toString()});
+        cursor.moveToFirst();
+        Obisk obisk = new Obisk();
+        obisk.setIdObisk(cursor.getInt(0));
+        obisk.setIdPot(cursor.getInt(1));
+        obisk.setIdUser(cursor.getInt(2));
+        obisk.setKomentar(cursor.getString(3));
+        obisk.setDatum(cursor.getString(4));
+        slikaInBytes = cursor.getBlob(5);
+        Bitmap bitmapSlika = BitmapFactory.decodeByteArray(slikaInBytes,0,slikaInBytes.length);
+        obisk.setSlika(bitmapSlika);
+        return obisk;
+
+    }
+
+
 
     public boolean vnesiObisk (Integer idUser, Integer idPot, Bitmap slika, String datum, String komentar){
         SQLiteDatabase db = getReadableDatabase();

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.tva_projekt.databinding.ActivityHribiIzbiraBinding;
+import com.example.tva_projekt.databinding.ActivityOsvojeniVrhBinding;
 import com.facebook.CallbackManager;
 
 
@@ -24,9 +25,9 @@ import java.util.ArrayList;
 
 public class Osvojeni_vrh extends AppCompatActivity {
 
-    ActivityHribiIzbiraBinding binding;
+    ActivityOsvojeniVrhBinding binding;
     DBHelper DB;
-    ArrayList<Vrh> noviArrayList=new ArrayList<>();
+    ArrayList<Obisk> noviArrayList=new ArrayList<>();
     Integer idUser;
 
 
@@ -36,7 +37,7 @@ public class Osvojeni_vrh extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_osvojeni_vrh);
 
-        binding=ActivityHribiIzbiraBinding.inflate(getLayoutInflater());
+        binding=ActivityOsvojeniVrhBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = this.getIntent();
 
@@ -44,15 +45,30 @@ public class Osvojeni_vrh extends AppCompatActivity {
             idUser = intent.getIntExtra("idUser",0);
 
         }
+
         DB=new DBHelper(this);
-        noviArrayList=DB.izpisiVrhove(1);
+        noviArrayList=DB.izpisiObiske(idUser);
 
-        ListAdapterVrh listAdapterHribi = new ListAdapterVrh(Osvojeni_vrh.this, noviArrayList);
+        ListAdapterObisk listAdapterObisk = new ListAdapterObisk(Osvojeni_vrh.this, noviArrayList);
 
-        binding.listview.setAdapter(listAdapterHribi);
-        binding.listview.setClickable(true);
+        binding.listviewobiski.setAdapter(listAdapterObisk);
+        binding.listviewobiski.setClickable(true);
+        binding.listviewobiski.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(Osvojeni_vrh.this, Zapisek.class);
+
+                Obisk izbran = listAdapterObisk.getItem(position);
+
+
+                i.putExtra("idObisk", izbran.idObisk);
+
+                i.putExtra("idUser", idUser);
+
+                startActivity(i);
+            }
+        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
