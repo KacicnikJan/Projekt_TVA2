@@ -62,7 +62,6 @@ public class HomeActivity extends AppCompat {
         dodajZapis = (Button) findViewById(R.id.btn_dodaj_zapis);
         vremeneskiPodatki=(Button) findViewById(R.id.btnVremenskiPodatki);
         osvojeniVrh=(Button) findViewById(R.id.btnOsvojeniVrhovi);
-        spletnekamere=(Button) findViewById(R.id.btnSpletneKamere);
 
         DB = new DBHelper(this);
 
