@@ -5,12 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Osvojeni_vrh">
-    <ListView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_stat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:text="statistika" />
+
+        <ListView
         android:id="@+id/listviewobiski"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_view_obiski"/>
-
+    </RelativeLayout>
 
 </RelativeLayout>
 

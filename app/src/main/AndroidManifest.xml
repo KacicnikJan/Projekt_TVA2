@@ -24,6 +24,9 @@
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".Statistika"
+            android:exported="false" />
+        <activity
             android:name=".mapa_prikaz"
             android:exported="false" />
         <activity

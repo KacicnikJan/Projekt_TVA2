@@ -29,6 +29,7 @@ public class Osvojeni_vrh extends AppCompatActivity {
     DBHelper DB;
     ArrayList<Obisk> noviArrayList=new ArrayList<>();
     Integer idUser;
+    Button btnStat;
 
 
 
@@ -41,12 +42,25 @@ public class Osvojeni_vrh extends AppCompatActivity {
         setContentView(binding.getRoot());
         Intent intent = this.getIntent();
 
+
+
         if(intent!= null) {
             idUser = intent.getIntExtra("idUser",0);
 
         }
 
         DB=new DBHelper(this);
+
+        btnStat=findViewById(R.id.btn_stat);
+        btnStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intNaprej= new Intent(Osvojeni_vrh.this, Statistika.class);
+                intNaprej.putExtra("idUser", idUser);
+                startActivity(intNaprej);
+
+            }
+        });
         noviArrayList=DB.izpisiObiske(idUser);
 
         ListAdapterObisk listAdapterObisk = new ListAdapterObisk(Osvojeni_vrh.this, noviArrayList);
