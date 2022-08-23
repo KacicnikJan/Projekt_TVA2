@@ -8,46 +8,32 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:layout_marginTop="224dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
 
     <com.facebook.login.widget.LoginButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck"
         android:id="@+id/btnFBlog"
-        />
-
-    <com.facebook.share.widget.ShareButton
-        android:id="@+id/btnSharePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="56dp"
         android:minHeight="48dp"
-        android:text="Share photo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintStart_toEndOf="@+id/btnShareLink"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <com.facebook.share.widget.ShareButton
         android:id="@+id/btnShareLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="50dp"
         android:minHeight="48dp"
-        android:text="Share Link"
+        android:text="@string/sharelink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

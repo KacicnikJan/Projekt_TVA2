@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Ime Poti"
+                android:text="@string/imepoti"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -28,7 +28,7 @@
                 android:id="@+id/zahtevnost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="zahtevnost"
+                android:text="@string/zahtevnost"
                 android:textAlignment="center"
                 app:layout_constraintHorizontal_bias="0.5"
 
@@ -41,7 +41,7 @@
                 android:id="@+id/latitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="zahtevnost"
+                android:text="@string/latitude"
                 android:textAlignment="center"
                 app:layout_constraintHorizontal_bias="0.5"
 
@@ -51,7 +51,7 @@
         android:id="@+id/opisPot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="zahtevnost"
+        android:text="@string/opispoti"
         android:layout_marginTop="20dp"
         android:paddingLeft="30dp"
 
@@ -62,7 +62,7 @@
         android:id="@+id/opisIzhodisce"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="zahtevnost"
+        android:text="@string/opisizhodisca"
         android:paddingLeft="30dp"
         android:layout_marginTop="20dp"
         app:layout_constraintHorizontal_bias="0.5"
@@ -75,10 +75,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="119dp"
-        android:text="Button"
+        android:text="@string/prikazpoti"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/idInterne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/internet"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+
+    <WebView
+        android:id="@+id/wv"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintBottom_toTopOf="@+id/idInterne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +26,9 @@ public class Podrobno extends AppCompatActivity {
     TextView lok, opisPoti, opisIzhodisce;
     Button prikaz_poti;
     Integer idUser;
+    private WebView webView;
+    TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,39 @@ public class Podrobno extends AppCompatActivity {
         opisIzhodisce.setText("Navodila do izhodišča: " + pot.izhodisceDostop);
         opisPoti.setText("Opis poti: " + pot.opisPoti);
         prikaz_poti=findViewById(R.id.btnPrikazPoti);
+        prikaz_poti.setVisibility(View.VISIBLE);
+
+        textView=(TextView) findViewById(R.id.idInterne);
+        webView = (WebView) findViewById(R.id.wv);
+        textView.setVisibility(View.INVISIBLE);
+
+        if(CheckNetwork.isInternetAvailable(Podrobno.this))
+        {
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+
+            // webView = (WebView) findViewById(R.id.wv);
+            // webView.setWebViewClient(new MyWebViewClient());
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.setWebChromeClient(new WebChromeClient() {
+                public void onProgressChanged(WebView view, int progress) {
+                    Podrobno.this.setProgress(progress * 1000);
+                }
+            });
+            webView.setWebViewClient(new WebViewClient() {
+                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                    Toast.makeText(Podrobno.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+        else{
+            //no connection
+            Toast toast = Toast.makeText(Podrobno.this, "No Internet Connection", Toast.LENGTH_LONG);
+            toast.show();
+            prikaz_poti.setVisibility(View.INVISIBLE);
+            textView.setVisibility(View.VISIBLE);
+        }
 
         prikaz_poti.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +121,19 @@ public class Podrobno extends AppCompatActivity {
     }
         return(super.onOptionsItemSelected(item));
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        }
+        else
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
 }

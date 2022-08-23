@@ -24,13 +24,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:textStyle="bold"
-                android:text="Ime Gorovja"
+                android:text="@string/imegorovja"
                 android:textSize="20dp"/>
             <TextView
                 android:id="@+id/stVrhov"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 vrhov"/>
+                android:text="@string/vrh"/>
 
         </LinearLayout>
 

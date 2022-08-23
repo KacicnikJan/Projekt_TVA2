@@ -39,7 +39,6 @@ public class SpletneKamere extends AppCompatActivity {
         setContentView(R.layout.activity_spletne_kamere);
         imageView=findViewById(R.id.imageView);
         sbLink=findViewById(R.id.btnShareLink);
-        sbPhoto=findViewById(R.id.btnSharePhoto);
         loginButton=findViewById(R.id.btnFBlog);
 
         imageView.setImageResource(R.drawable.img);
@@ -55,7 +54,7 @@ public class SpletneKamere extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
 
         ShareLinkContent shareLinkContent=new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("https://www.youtube.com/watch?v=GxrxV37a9YE&ab_channel=WittCode"))
+                .setContentUrl(Uri.parse("https://www.hribi.net/"))
                 .setShareHashtag(new ShareHashtag.Builder()
                         .setHashtag("#Planinec").build())
                 .build();
@@ -68,12 +67,6 @@ public class SpletneKamere extends AppCompatActivity {
         SharePhoto sharePhoto=new SharePhoto.Builder()
                 .setBitmap(bitmap)
                 .build();
-
-        SharePhotoContent sharePhotoContent=new SharePhotoContent.Builder()
-                .addPhoto(sharePhoto)
-                .build();
-
-        sbPhoto.setShareContent(sharePhotoContent);
     }
 
     @Override

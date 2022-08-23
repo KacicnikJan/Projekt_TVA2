@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="31dp"
         android:paddingStart="30sp"
-        android:text="Pridobivanje podatkov"
+        android:text="@string/pridobivanjevreme"
         android:textColor="#100F0F"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Want To Search For New City"
+            android:text="@string/drugomesto"
             android:textColor="#ffffff"
             android:textSize="20dp" />
 

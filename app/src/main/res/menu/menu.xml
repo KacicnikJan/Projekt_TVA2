@@ -22,4 +22,8 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/pet"
+        android:title="Facebook"
+        app:showAsAction="never"/>
 </menu>

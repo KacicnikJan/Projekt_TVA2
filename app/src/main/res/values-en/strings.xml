@@ -29,5 +29,26 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="DodajIme">Name of road</string>
+    <string name="DodajKomentar">Add coment</string>
+    <string name="DodajDatum">Add date</string>
+    <string name="dodajVzpon">Add ascent</string>
+    <string name="btnDodajzapis">Add note</string>
+    <string name="imegore">Name of mountain</string>
+    <string name="getdirection">Get directions</string>
+    <string name="statistika">Statistics</string>
+    <string name="imepoti">Name of road</string>
+    <string name="zahtevnost">Demandingness</string>
+    <string name="latitude">latitude</string>
+    <string name="opispoti">Description route</string>
+    <string name="opisizhodisca">Description of starting point</string>
+    <string name="prikazpoti">Show route</string>
+    <string name="imegorovja">Name of mountain</string>
+    <string name="vrh">Peak</string>
+    <string name="sharelink">Share content</string>
+    <string name="pridobivanjevreme">Get data</string>
+    <string name="drugomesto">Search for different city</string>
+    <string name="mapa">MAPS</string>
+    <string name="internet">Internet failed</string>
 
 </resources>

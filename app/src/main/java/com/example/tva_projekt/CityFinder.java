@@ -37,8 +37,6 @@ public class CityFinder extends AppCompatActivity {
                 intent.putExtra("City",newCity);
                 startActivity(intent);
 
-
-
                 return false;
             }
         });

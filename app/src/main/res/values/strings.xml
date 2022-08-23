@@ -33,4 +33,25 @@
     <string name="facebook_app_id" translatable="false">608827034097783</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb608827034097783</string>
     <string name="facebook_client_token" translatable="false">685b33351b9f8581e2112084542bc47f</string>
+    <string name="DodajIme">Ime poti</string>
+    <string name="DodajKomentar">Dodaj komentar</string>
+    <string name="DodajDatum">Dodaj datum</string>
+    <string name="dodajVzpon">Dodaj vzpon</string>
+    <string name="btnDodajzapis">Dodaj zapis</string>
+    <string name="imegore">Ime gore</string>
+    <string name="getdirection">Pridobi navodila</string>
+    <string name="statistika">Statistika</string>
+    <string name="imepoti">Ime poti</string>
+    <string name="zahtevnost">Zahtevnost</string>
+    <string name="latitude">latitude</string>
+    <string name="opispoti">Opis poti</string>
+    <string name="opisizhodisca">Opis izhodisca</string>
+    <string name="prikazpoti">Prikaz poti</string>
+    <string name="imegorovja">Ime gorovja</string>
+    <string name="vrh">vrh</string>
+    <string name="sharelink">Deli objavo</string>
+    <string name="pridobivanjevreme">Pridobivanje podatkov</string>
+    <string name="drugomesto">Iskanje drugega mesta</string>
+    <string name="mapa">MAPS</string>
+    <string name="internet">Internet failed, please connect and refresh page.</string>
 </resources>
