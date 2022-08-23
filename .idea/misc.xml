@@ -34,12 +34,17 @@
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_home.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_hribi_izbira.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_izbira_poti.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_osvojeni_vrh.xml" value="0.12117117117117117" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_podrobno.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_posamezni_vrh.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_register.xml" value="0.26927083333333335" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/activity_statistika.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item_pot.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_item_vrh.xml" value="0.264" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_view_obiski.xml" value="0.12117117117117117" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/list_view_stats.xml" value="0.1" />
+        <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/listviewstats.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/row_hribovje_spinner.xml" value="0.1" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/row_vrh_spinner.xml" value="0.1" />
         <entry key="..\:/Users/Denis/AndroidStudioProjects/Projekt_TVA2/app/src/main/res/layout/vrh_search_layout.xml" value="0.264" />

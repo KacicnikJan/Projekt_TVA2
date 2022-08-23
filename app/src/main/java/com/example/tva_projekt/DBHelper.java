@@ -275,6 +275,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Stats> pridobiStatistiko(Integer idUser){
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT dvrh.idVrha, dvrh.imeVrha, count(idObisk) FROM dvrh, dpot, dobisk WHERE dvrh.idVrha=dpot.idVrha AND dpot.idPot=dobisk.idPot AND idUser=? GROUP BY dvrh.imeVrha", new String[]{idUser.toString()});
+        ArrayList<Stats> statsArrayList = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                Stats stats = new Stats();
+                stats.setIdVrha(cursor.getInt(0));
+                stats.setImeVrha(cursor.getString(1));
+                stats.setStObiskov(cursor.getInt(2));
+                statsArrayList.add(stats);
+
+            }while (cursor.moveToNext());
+        }
+        return statsArrayList;
+    }
+
 
 
     public boolean vnesiObisk (Integer idUser, Integer idPot, Bitmap slika, String datum, String komentar){
